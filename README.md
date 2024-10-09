@@ -113,39 +113,42 @@ graph TD
 ```java
 import java.io.PrintStream;
 import java.util.Scanner;
-
 public class Main {
-    // Объявляем объект класса Scanner для ввода данных
-    public static Scanner in = new Scanner(System.in);
     // Объявляем объект класса PrintStream для вывода данных
     public static PrintStream out = System.out;
-
-    public static void main(String[] args) {
-        // Считывание двух вещественных чисел x и y из консоли
-        double x = in.nextDouble();
-        double y = in.nextDouble();
-
-        // Определение максимального числа
-        if (x >= y) {
-            // Если x положительное, выводим x, иначе выводим -x,
-            // чтобы на выходе было его абсолютное значение
-            if (x >= 0) {
-                out.println(x);
-            } else {
-                out.println(-x);
+    // Объявляем объект класса Scanner для ввода данных
+    public static Scanner in = new Scanner(System.in);
+    public static void main(String[] args){
+        // Считывание пяти целых чисел x, a, b, c, d из консоли
+        out.println("Введите диаметр шарика: ");
+        int x = in.nextInt();
+        out.println("Введите диаметры отверстий: ");
+        int a = in.nextInt();
+        int b = in.nextInt();
+        int c = in.nextInt();
+        int d = in.nextInt();
+        out.println("Шарик может пройти через ");
+        // определение через сколько отверстий пройдет шар
+        // если диаметр шара меньше или равен диаметру отверстия, мы переходим к следующему отверстию
+        // если диаметр шара больше диаметра отверстия, мы выводим, через сколько отверстий успел пройти шар
+        if (x <= a) {
+            if (x <= b) {
+                if (x <= c) {
+                    if (x <= d)
+                        out.print(4 + " отверстия");
+                    else
+                        out.print(3 + " отверстия");
+                }
+                else
+                    out.print(2 + " отверстия");
             }
-        } else {
-            // Если x положительное, выводим y, иначе выводим -y,
-            // чтобы на выходе было его абсолютное значение
-            if (y >= 0) {
-                out.println(y);
-            } else {
-                out.println(-y);
-            }
+            else
+                out.print(1 + " отверстие");
         }
+        else out.print(0 + " отверстий");
+
     }
-}
-```
+}```
 
 ### 6. Анализ правильности решения
 
